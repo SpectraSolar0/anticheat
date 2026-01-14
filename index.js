@@ -8,6 +8,18 @@ const {
 const config = require("./config.json");
 const logger = require("./utils/logger");
 
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Bot AntiCheat en ligne !");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("🌍 Serveur Express actif sur le port " + PORT);
+});
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
